@@ -1,6 +1,6 @@
 # Copyright (c) 2022, Oracle and/or its affiliates. All rights reserved.
 # Licensed under the Universal Permissive License v 1.0 as shown at http://oss.oracle.com/licenses/upl.
-# 
+#
 
 # File Version: 0.8.0
 
@@ -66,6 +66,7 @@ module "oke" {
   ## create_new_oke_cluster
   create_new_oke_cluster  = var.create_new_oke_cluster
   existent_oke_cluster_id = var.existent_oke_cluster_id
+  cluster_type = var.cluster_type
 
   ## Network Details
   vcn_id                 = module.vcn.vcn_id
