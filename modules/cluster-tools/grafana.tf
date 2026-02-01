@@ -1,6 +1,6 @@
 # Copyright (c) 2022 Oracle and/or its affiliates. All rights reserved.
 # Licensed under the Universal Permissive License v 1.0 as shown at http://oss.oracle.com/licenses/upl.
-# 
+#
 
 # Grafana variables
 variable "grafana_enabled" {
@@ -21,7 +21,7 @@ resource "helm_release" "grafana" {
 
   set {
     name  = "grafana\\.ini.server.root_url"
-    value = "%(protocol)s://%(domain)s:%(http_port)s/grafana"
+    value = "%(protocol)s://grafana.%(domain)s:%(http_port)s"
     type  = "string"
   }
 
@@ -114,7 +114,7 @@ plugins:
   - grafana-worldmap-panel
   - grafana-piechart-panel
   - btplc-status-dot-panel
-datasources: 
+datasources:
   datasources.yaml:
     apiVersion: 1
     datasources:
