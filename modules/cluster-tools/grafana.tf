@@ -155,14 +155,14 @@ resource "kubernetes_ingress_v1" "grafana" {
   metadata {
     name        = "grafana"
     namespace   = kubernetes_namespace.cluster_tools.0.id
-    annotations = local.ingress_nginx_annotations
+    annotations = local.ingress_nginx_annotations_grafana
   }
   spec {
     ingress_class_name = "nginx"
     rule {
       http {
         path {
-          path      = "/(/|$)(.*)"
+          path      = "/"
           path_type = "Prefix"
           backend {
             service {
@@ -182,7 +182,7 @@ resource "kubernetes_ingress_v1" "grafana" {
         host = rule.value
         http {
           path {
-            path      = "/(/|$)(.*)"
+            path      = "/"
             path_type = "Prefix"
             backend {
               service {
