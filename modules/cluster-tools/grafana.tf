@@ -162,7 +162,7 @@ resource "kubernetes_ingress_v1" "grafana" {
     rule {
       http {
         path {
-          path      = "/grafana(/|$)(.*)"
+          path      = "/(/|$)(.*)"
           path_type = "Prefix"
           backend {
             service {
@@ -182,7 +182,7 @@ resource "kubernetes_ingress_v1" "grafana" {
         host = rule.value
         http {
           path {
-            path      = "/grafana(/|$)(.*)"
+            path      = "/(/|$)(.*)"
             path_type = "Prefix"
             backend {
               service {
